@@ -1,0 +1,6 @@
+# Ship prebuilt Isar Core binaries so git dependencies work without the release CI.
+!*.xcframework/
+!*.a
+!*.so
+!*.dylib
+!*.dll
