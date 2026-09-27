@@ -7,18 +7,26 @@ let package = Package(
         .iOS("12.0"),
     ],
     products: [
-        .library(name: "isar-community-flutter-libs", type: .dynamic, targets: ["isar_community_flutter_libs"]),
+        .library(name: "isar-community-flutter-libs", targets: ["isar_community_flutter_libs"]),
     ],
     targets: [
         .target(
             name: "isar_community_flutter_libs",
             dependencies: [
                 .target(name: "isar"),
+                .target(name: "isar_keep"),
             ],
             path: "Sources/isar_community_flutter_libs",
             resources: [
                 .process("PrivacyInfo.xcprivacy"),
             ]
+        ),
+        .target(
+            name: "isar_keep",
+            dependencies: [
+                .target(name: "isar"),
+            ],
+            path: "Sources/isar_keep"
         ),
         .binaryTarget(
             name: "isar",
